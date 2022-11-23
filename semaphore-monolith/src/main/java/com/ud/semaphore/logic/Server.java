@@ -3,7 +3,6 @@ package com.ud.semaphore.logic;
 import com.ud.semaphore.presentation.Intersection1;
 import com.ud.semaphore.presentation.Intersection2;
 import com.ud.semaphore.presentation.Intersection3;
-import com.ud.semaphore.presentation.Intersection4;
 
 import javax.swing.*;
 import java.io.DataInputStream;
@@ -13,7 +12,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Server extends JFrame implements Runnable {
@@ -49,7 +47,12 @@ public class Server extends JFrame implements Runnable {
 
                 output.writeUTF("\n\nSERVIDOR INICIADO\n" + menu());
 
+                System.out.println("Json Recibido " + input.readUTF());
+
+
+
                 int service = input.readInt();
+
                 System.out.println("Arrancando intersecciones...");
 
                 do {
@@ -87,16 +90,6 @@ public class Server extends JFrame implements Runnable {
                         intersection3.setResizable(true);
                         intersection3.setVisible(true);
 
-                    }else if (service == 4) {
-
-                        System.out.println("Arrancando Consola Intersección 4...");
-                        Intersection4 intersection4 = new Intersection4();
-                        intersection4.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                        intersection4.setSize(260, 570);
-                        intersection4.setTitle("Intersección 4");
-                        intersection4.setResizable(true);
-                        intersection4.setVisible(true);
-
                     }else if (service == 5) {
                         output.writeUTF("\n\nMenu Principal\n" + menu());
                     } else {
@@ -132,7 +125,6 @@ public class Server extends JFrame implements Runnable {
                 " 1. Iniciar Intersección 1\n" +
                 " 2. Iniciar Intersección 2\n" +
                 " 3. Iniciar Intersección 3\n" +
-                " 4. Iniciar Intersección 4\n" +
                 " 5. Volver al Menu";
     }
 }

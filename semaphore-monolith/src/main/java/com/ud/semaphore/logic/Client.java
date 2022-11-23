@@ -11,7 +11,7 @@ public class Client implements Runnable{
     public void run() {
         Socket client = null;
         String host = "localhost";
-        int port = 8080;
+        int port = 9001;
 
         try {
             client = new Socket(host, port);

@@ -1,6 +1,5 @@
 package com.ud.semaphore.presentation;
 
-import com.ud.semaphore.presentation.semaphore.LightP;
 import com.ud.semaphore.presentation.semaphore.LightV;
 
 import javax.swing.*;
